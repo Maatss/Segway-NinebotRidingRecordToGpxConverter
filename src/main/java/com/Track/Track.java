@@ -1,24 +1,29 @@
 package com.Track;
 
 import java.nio.file.Path;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class Track {
+    private static final SimpleDateFormat filenameFormat = new SimpleDateFormat("'Track_'yyyy-MM-dd_HH-mm-ss", Locale.US);
+
     private final SegwayTrack segwayTrack;
     private final Path path;
-    private final String name;
+    private String name;
     private long startTimestamp;
     private List<Waypoint> waypoints;
 
     public Track(Path path, SegwayTrack segwayTrack) {
-        this.name = getFileName(path);
         this.segwayTrack = segwayTrack;
         this.path = path;
 
         setupWaypoints();
         setupStartTimestamp();
+        setupName();
     }
 
     private static String getFileName(Path path) {
@@ -39,6 +44,17 @@ public class Track {
                 : 0;
     }
 
+    private void setupName() {
+        // If there is no startTimestamp, keep original filename
+        if (startTimestamp == 0) {
+            name = getFileName(path);
+            return;
+        }
+
+        // Else, use startTimestamp as filename
+        name = filenameFormat.format(new Date(startTimestamp));
+    }
+
     private void setupWaypoints() {
         // Get list of raw-json waypoints
         String[][] segwayWaypointList = segwayTrack.getList();
@@ -52,7 +68,7 @@ public class Track {
                     double latitude = Double.parseDouble(strings[1]);
                     double unknown = Double.parseDouble(strings[2]);
                     long timestamp = Long.parseLong(strings[3]) * 1000; // Convert to milliseconds
-                    return new Waypoint(longitude, latitude, unknown, timestamp);
+                    return new Waypoint(latitude, longitude, unknown, timestamp);
                 })
                 .collect(Collectors.toList());
     }

@@ -14,6 +14,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -85,11 +86,10 @@ public class GpxCreator {
             }
 
             // Get file save location
-            String path = track.getPath().toString();
+            Path trackFilePath = track.getPath();
 
-            // Replace file extension with .gpx
-            int pos = path.lastIndexOf(".");
-            path = path.substring(0, pos) + ".gpx";
+            // Replace filename with its corresponding date and its file extension with '.gpx'
+            String path = trackFilePath.getParent().resolve(track.getName()).toString() + ".gpx";
 
             // Create gpx file
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
