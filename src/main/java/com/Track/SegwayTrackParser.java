@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SegwayTrackParser {
-    public static List<Track> parseTracks(Path[] paths) {
+    public static List<Track> parseTracks(Path[] paths, boolean allowSpaces) {
         // Create a Track object for each file
         List<Track> tracks = new ArrayList<>(paths.length);
         Gson gson = new Gson();
@@ -19,7 +19,7 @@ public class SegwayTrackParser {
                 SegwayTrack segwayTrack = gson.fromJson(new FileReader(path.toFile()), SegwayTrack.class);
 
                 // Wrap the data holder class
-                Track track = new Track(path, segwayTrack);
+                Track track = new Track(path, segwayTrack, allowSpaces);
                 tracks.add(track);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();

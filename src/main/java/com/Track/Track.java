@@ -9,7 +9,8 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class Track {
-    private static final SimpleDateFormat filenameFormat = new SimpleDateFormat("'Track_'yyyy-MM-dd_HH-mm-ss", Locale.US);
+    public static final SimpleDateFormat DEFAULT_NO_SPACES_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", Locale.US);
+    public static final SimpleDateFormat DEFAULT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss", Locale.US);
 
     private final SegwayTrack segwayTrack;
     private final Path path;
@@ -17,13 +18,13 @@ public class Track {
     private long startTimestamp;
     private List<Waypoint> waypoints;
 
-    public Track(Path path, SegwayTrack segwayTrack) {
+    public Track(Path path, SegwayTrack segwayTrack, boolean allowSpaces) {
         this.segwayTrack = segwayTrack;
         this.path = path;
 
         setupWaypoints();
         setupStartTimestamp();
-        setupName();
+        setupName(allowSpaces);
     }
 
     private static String getFileName(Path path) {
@@ -44,7 +45,7 @@ public class Track {
                 : 0;
     }
 
-    private void setupName() {
+    private void setupName(boolean allowSpaces) {
         // If there is no startTimestamp, keep original filename
         if (startTimestamp == 0) {
             name = getFileName(path);
@@ -52,7 +53,8 @@ public class Track {
         }
 
         // Else, use startTimestamp as filename
-        name = filenameFormat.format(new Date(startTimestamp));
+        SimpleDateFormat dateFormat = allowSpaces ? DEFAULT_DATE_FORMAT : DEFAULT_NO_SPACES_DATE_FORMAT;
+        name = dateFormat.format(new Date(startTimestamp));
     }
 
     private void setupWaypoints() {

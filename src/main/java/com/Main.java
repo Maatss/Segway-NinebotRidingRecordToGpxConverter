@@ -9,6 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Main {
+    private static final long MAX_GPX_FILE_SIZE = 5_000_000; // 5 Megabytes, the limit set for Google myMaps
+    private static final boolean ALLOW_FILENAME_SPACES = true;
+
     public static void main(String[] args) {
         // If no arguments were given, let the user enter them
         if (args.length == 0) {
@@ -20,22 +23,25 @@ public class Main {
             System.out.println("\t" + arg);
         }
 
-        System.out.println("\nExtracting paths from arguments..");
+        System.out.print("\nExtracting paths from arguments..");
         Path[] filesToConvert = extractFilesFromArguments(args);
+        System.out.println(" Done.");
 
-        System.out.println("Parsing segway tracks..");
-        List<Track> tracks = SegwayTrackParser.parseTracks(filesToConvert);
+        System.out.print("Parsing segway tracks..");
+        List<Track> tracks = SegwayTrackParser.parseTracks(filesToConvert, ALLOW_FILENAME_SPACES);
+        System.out.println(" Done.");
 
-        System.out.println("Creating gpx files..");
-        tracks.forEach(GpxCreator::createGpx);
+        System.out.printf("Creating gpx files of size %d bytes..", MAX_GPX_FILE_SIZE);
+        GpxPartitioner.createGpxFilesOfSize(tracks, MAX_GPX_FILE_SIZE, ALLOW_FILENAME_SPACES);
+        System.out.println(" Done.");
 
-        System.out.println("\nDone.");
+        System.out.println("\nProgram has successfully completed.");
     }
 
     /**
      * Creates an array of Paths from the string array of file paths
      */
-    private static Path[] extractFilesFromArguments(String[] args) {
+    private static Path[] extractFilesFromArguments(final String[] args) {
         return Arrays.stream(args).map(Paths::get).toArray(Path[]::new);
     }
 }
