@@ -18,10 +18,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * Based on: https://gitlab.com/rcgroot/open-gps-tracker/-/blob/develop/studio/exporter/src/main/java/nl/renedegroot/opengpstracker/exporter/GpxCreator.java
@@ -71,9 +68,18 @@ public class GpxCreator {
     }
 
     /**
-     * Returns the estimates gpx file size in bytes
+     * Returns the exact gpx filesize in bytes when including all provided tracks.
      */
-    public static long estimateGpxSize(List<Track> tracks) {
+    public static long gpxFileSize(List<Track> tracks, Track track) {
+        List<Track> tracksCombined = new ArrayList<>(tracks);
+        tracksCombined.add(track);
+        return gpxFileSize(tracksCombined);
+    }
+
+    /**
+     * Returns the exact gpx filesize in bytes.
+     */
+    public static long gpxFileSize(List<Track> tracks) {
         // Use an arbitrary reference type to enable mutability of the long value
         long[] sizeInBytes = new long[]{0};
 

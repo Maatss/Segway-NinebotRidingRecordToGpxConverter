@@ -4,7 +4,7 @@ REM Set working directory to current script location, solves issue where you dro
 Pushd "%~dp0"
 
 REM Run jar and pass along all arguments
-java -jar build\libs\SegwayJsonToGpxConverter-1.0.jar %*
+java -jar build\libs\SegwayJsonToGpxConverter-1.2.jar %*
 
 REM Clear working directory
 popd

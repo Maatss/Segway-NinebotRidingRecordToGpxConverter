@@ -11,6 +11,10 @@ public class SegwayTrack {
     private String[][] list;
     private int version;
 
+    public SegwayTrack(String[][] list) {
+        this.list = list;
+    }
+
     public int getCoordinateType() {
         return coordinateType;
     }

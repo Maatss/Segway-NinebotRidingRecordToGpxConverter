@@ -32,30 +32,35 @@ public class GpxPartitioner {
     }
 
     private static List<List<Track>> partitionTracks(List<Track> tracks, long maxFileSize) {
+        GpxEstimator gpxEstimator = new GpxEstimator();
+        List<Track> trackPartition = new ArrayList<>();
         List<List<Track>> trackPartitions = new ArrayList<>();
 
-        // Divide tracks into partitions respecting maxFileSize
-        List<Track> trackPartition = new ArrayList<>();
+        // Partition tracks into partitions with a max filesize
         for (Track track : tracks) {
-            // Get size
-            // A size of 0 is expected for the first loop iteration
-            long sizeInBytes = GpxCreator.estimateGpxSize(trackPartition);
+            long nextPartitionSizeInBytes = gpxEstimator.estimateSize(trackPartition, track);
 
             // Create a partition if above filesize limit
-            if (sizeInBytes > maxFileSize) {
-                if (trackPartition.size() == 1) {
+            // Use quick estimation and recheck with exact size if the first one passes
+            if (nextPartitionSizeInBytes > maxFileSize
+                    && GpxCreator.gpxFileSize(trackPartition, track) > maxFileSize) {
+                if (trackPartition.size() == 0) {
                     throw new RuntimeException(
                             String.format("partitionTracks: maxFileSize (%d bytes) is too small," +
-                                    " a single track (%d) cannot fit inside it.", maxFileSize, sizeInBytes));
+                                    " a single track (%d) could not fit inside it.", maxFileSize, nextPartitionSizeInBytes));
                 }
 
+                // Create partition
                 trackPartitions.add(new ArrayList<>(trackPartition));
                 trackPartition.clear();
             }
 
-            // Add track to current partition
+            // Add track to current partial partition
             trackPartition.add(track);
         }
+
+        // Create final partition
+        trackPartitions.add(new ArrayList<>(trackPartition));
 
         return trackPartitions;
     }
