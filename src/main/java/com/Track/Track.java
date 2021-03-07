@@ -2,10 +2,7 @@ package com.Track;
 
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Track {
@@ -89,5 +86,18 @@ public class Track {
 
     public long getStartTimestamp() {
         return startTimestamp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Track track = (Track) o;
+        return waypoints.equals(track.waypoints);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(waypoints);
     }
 }
