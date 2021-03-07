@@ -17,7 +17,9 @@ public class Main {
     public static void main(String[] args) {
         // If no arguments were given, let the user enter them
         if (args.length == 0) {
-            throw new IllegalArgumentException("No arguments were provided. Pass the files you want to convert as arguments, each filepath separated by a space.");
+            throw new IllegalArgumentException("No arguments were provided." +
+                    " Pass the files you want to convert as arguments, each filepath separated by a space." +
+                    " This can easily be done by simply dragging and dropping the files onto this program.");
         }
 
         System.out.printf("Received arguments (%d):\n", args.length);
