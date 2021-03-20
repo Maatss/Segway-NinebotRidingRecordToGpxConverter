@@ -1,7 +1,7 @@
-package com;
+package com.converter.gpx;
 
-import com.Track.SegwayTrack;
-import com.Track.Track;
+import com.converter.track.SegwayTrack;
+import com.converter.track.Track;
 
 import java.nio.file.Paths;
 import java.util.ArrayList;

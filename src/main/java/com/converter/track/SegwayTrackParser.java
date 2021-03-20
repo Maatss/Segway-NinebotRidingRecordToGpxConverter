@@ -1,4 +1,4 @@
-package com.Track;
+package com.converter.track;
 
 import com.google.gson.Gson;
 
@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SegwayTrackParser {
-    public static List<Track> parseTracks(Path[] paths, boolean allowSpaces) {
+    public static List<Track> parseTracks(List<Path> paths, boolean allowSpaces) {
         // Create a Track object for each file
-        List<Track> tracks = new ArrayList<>(paths.length);
+        List<Track> tracks = new ArrayList<>(paths.size());
         Gson gson = new Gson();
         for (Path path : paths) {
             try {

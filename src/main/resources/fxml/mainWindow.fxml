@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.app.components.WizardProgressComponent?>
+<?import com.app.components.WizardStepComponent?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPane_window" prefHeight="600.0" prefWidth="800.0" styleClass="window" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane fx:id="anchorPane_header" prefHeight="40.0" prefWidth="200.0" styleClass="windowHeader" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="label_headerTitle" alignment="CENTER" prefHeight="30.0" styleClass="windowHeaderTitle" text="Segway-Ninebot JSON-track to GPX-track Converter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="0.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Button fx:id="button_windowMinimize" focusTraversable="false" mnemonicParsing="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="96.0" AnchorPane.topAnchor="0.0">
+                    <styleClass>
+                        <String fx:value="defaultButton" />
+                        <String fx:value="windowHeaderButton" />
+                        <String fx:value="windowMinimizeButton" />
+                    </styleClass>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" opacity="0.4" pickOnBounds="true" preserveRatio="true" scaleX="1.2" translateY="-5.0">
+                            <image>
+                                <Image url="@../images/baseline_minimize_white_36dp.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="button_windowSize" disable="true" focusTraversable="false" mnemonicParsing="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="0.0">
+                    <styleClass>
+                        <String fx:value="defaultButton" />
+                        <String fx:value="windowHeaderButton" />
+                        <String fx:value="windowMaximizeButton" />
+                    </styleClass>
+                    <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="20.0" opacity="0.4" pickOnBounds="true" preserveRatio="true" translateY="1.0">
+                            <image>
+                                <Image url="@../images/baseline_crop_square_white_36dp.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+                <Button fx:id="button_windowClose" focusTraversable="false" mnemonicParsing="false" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <styleClass>
+                        <String fx:value="defaultButton" />
+                        <String fx:value="windowHeaderButton" />
+                        <String fx:value="windowCloseButton" />
+                    </styleClass>
+                    <graphic>
+                        <ImageView fitHeight="24.0" fitWidth="24.0" opacity="0.4" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../images/baseline_close_white_36dp.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+        <WizardProgressComponent fx:id="wizardProgressComponent" prefHeight="130.0" prefWidth="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="70.0" />
+        <WizardStepComponent fx:id="wizardStepComponent" prefWidth="200.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="230.0" />
+        <Button fx:id="button_back" alignment="CENTER" cancelButton="true" contentDisplay="CENTER" mnemonicParsing="false" text="Back" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="200.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <styleClass>
+                <String fx:value="defaultButton" />
+                <String fx:value="secondaryButtonColor" />
+            <String fx:value="navigationBackButton" />
+            </styleClass>
+        </Button>
+        <Button fx:id="button_nextStep" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="120.0" text="Next step" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="25.0">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <styleClass>
+                <String fx:value="defaultButton" />
+                <String fx:value="primaryButtonColor" />
+            <String fx:value="navigationNextButton" />
+            </styleClass>
+        </Button>
+    </children>
+</AnchorPane>

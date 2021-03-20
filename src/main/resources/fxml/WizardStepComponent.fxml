@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.app.components.ConfigureComponent?>
+<?import com.app.components.SaveFolderSelectionComponent?>
+<?import com.app.components.SourceFileSelectionComponent?>
+<?import com.app.components.SummaryComponent?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root style="-fx-background-color: transparent;" stylesheets="@../css/stylesheet.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <AnchorPane fx:id="anchorPane_wizardStepHeader" prefHeight="40.0" prefWidth="770.0" styleClass="containerHeader" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Label fx:id="label_wizardStep" alignment="CENTER" styleClass="containerHeaderWizardStep" text="Step 2/4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="16.0" AnchorPane.topAnchor="0.0">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="label_wizardTitle" alignment="CENTER" layoutX="357.0" layoutY="12.0" styleClass="containerHeaderTitle" text="Specify save folder" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <font>
+                        <Font size="16.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+        <SourceFileSelectionComponent fx:id="sourceFileSelectionComponent" layoutY="40.0" styleClass="containerBody" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+        <SaveFolderSelectionComponent fx:id="saveFolderSelectionComponent" layoutY="40.0" prefWidth="749.0" styleClass="containerBody" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+         <padding>
+            <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
+         </padding>
+        </SaveFolderSelectionComponent>
+        <ConfigureComponent fx:id="configureComponent" layoutY="40.0" prefWidth="749.0" styleClass="containerBody" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
+            <padding>
+                <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
+            </padding>
+        </ConfigureComponent>
+        <SummaryComponent fx:id="summaryComponent" layoutY="40.0" prefWidth="749.0" styleClass="containerBody" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+    </children>
+</fx:root>

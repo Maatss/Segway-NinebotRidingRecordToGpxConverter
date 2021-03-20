@@ -1,17 +1,18 @@
-package com;
+package com.converter.gpx;
 
-import com.Track.Track;
+import com.converter.track.Track;
 
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.Track.Track.DEFAULT_DATE_FORMAT;
-import static com.Track.Track.DEFAULT_NO_SPACES_DATE_FORMAT;
+import static com.converter.track.Track.DEFAULT_DATE_FORMAT;
+import static com.converter.track.Track.DEFAULT_NO_SPACES_DATE_FORMAT;
 
 public class GpxPartitioner {
 
-    public static void createGpxFilesOfSize(List<Track> tracks, long maxFileSize, boolean allowSpaces) {
+    public static List<Path> createGpxFilesOfSize(List<Track> tracks, Path saveDirectory, long maxFileSize, boolean allowSpaces) {
         List<List<Track>> trackPartitions = partitionTracks(tracks, maxFileSize);
 
         // Setup file name template
@@ -21,14 +22,18 @@ public class GpxPartitioner {
         SimpleDateFormat dateFormat = allowSpaces ? DEFAULT_DATE_FORMAT : DEFAULT_NO_SPACES_DATE_FORMAT;
 
         // Create a gpx file for each trackPartition
+        List<Path> filePaths = new ArrayList<>();
         for (int i = 0; i < trackPartitions.size(); i++) {
             // Create filename from template
             long millis = System.currentTimeMillis();
             String filename = String.format(filenameTemplate,
                     i + 1, trackPartitions.size(), dateFormat.format(millis));
 
-            GpxCreator.createGpxFile(trackPartitions.get(i), filename);
+            Path filePath = GpxCreator.createGpxFile(trackPartitions.get(i), saveDirectory, filename);
+            filePaths.add(filePath);
         }
+
+        return filePaths;
     }
 
     private static List<List<Track>> partitionTracks(List<Track> tracks, long maxFileSize) {
@@ -47,7 +52,7 @@ public class GpxPartitioner {
                 if (trackPartition.size() == 0) {
                     throw new RuntimeException(
                             String.format("partitionTracks: maxFileSize (%d bytes) is too small," +
-                                    " a single track (%d) could not fit inside it.", maxFileSize, nextPartitionSizeInBytes));
+                                    " a single track (%d bytes) could not fit inside it.", maxFileSize, nextPartitionSizeInBytes));
                 }
 
                 // Create partition

@@ -1,11 +1,11 @@
-package com.Track;
+package com.converter.track;
 
 import java.util.Objects;
 
 public class Waypoint {
     private final double lat;
     private final double lon;
-    private final double unknown; // Unknown value found in the raw-json file
+    private final double unknown; //todo unknown value found in the raw-json file
     private final long timestamp;
 
     public Waypoint(double lat, double lon, double unknown, long timestamp) {

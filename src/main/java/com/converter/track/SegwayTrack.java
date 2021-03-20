@@ -1,4 +1,4 @@
-package com.Track;
+package com.converter.track;
 
 import java.util.Arrays;
 
@@ -49,7 +49,7 @@ public class SegwayTrack {
 
     @Override
     public String toString() {
-        return "com.Track.SegwayTrack{" +
+        return "SegwayTrack{" +
                 "coordinateType=" + coordinateType +
                 ", countryCode='" + countryCode + '\'' +
                 ", list=" + Arrays.toString(list) +

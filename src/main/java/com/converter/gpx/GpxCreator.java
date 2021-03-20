@@ -1,7 +1,7 @@
-package com;
+package com.converter.gpx;
 
-import com.Track.Track;
-import com.Track.Waypoint;
+import com.converter.track.Track;
+import com.converter.track.Waypoint;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -17,8 +17,12 @@ import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
+
+import static com.converter.track.Track.DEFAULT_DATE_FORMAT;
+import static com.converter.track.Track.DEFAULT_NO_SPACES_DATE_FORMAT;
 
 /**
  * Based on: https://gitlab.com/rcgroot/open-gps-tracker/-/blob/develop/studio/exporter/src/main/java/nl/renedegroot/opengpstracker/exporter/GpxCreator.java
@@ -35,36 +39,41 @@ public class GpxCreator {
      * Creates a gpx file with an filename based on the current time,
      * from a track object in the same location as the original track file
      */
-    public static void createGpxFile(List<Track> tracks) {
+    public static Path createGpxFile(List<Track> tracks, Path saveDirectory, boolean allowSpaces) {
+        // Setup file name template
+        String filenameTemplate = allowSpaces
+                ? "ScooterTracks %s"
+                : "ScooterTracks_%s";
+        SimpleDateFormat dateFormat = allowSpaces ? DEFAULT_DATE_FORMAT : DEFAULT_NO_SPACES_DATE_FORMAT;
+
         // Create a unique filename based on the current time
         long millis = System.currentTimeMillis();
-        String filename = String.format("ScooterTracks_%s", Track.DEFAULT_DATE_FORMAT.format(millis));
+        String filename = String.format(filenameTemplate, dateFormat.format(millis));
 
-        createGpxFile(tracks, filename);
+        return createGpxFile(tracks, saveDirectory, filename);
     }
 
     /**
      * Creates a gpx file with the provided filename from a track object in the same location as the original track file
      */
-    public static void createGpxFile(List<Track> tracks, String filename) {
+    public static Path createGpxFile(List<Track> tracks, Path saveDirectory, String filename) {
         if (tracks.size() == 0) {
-            return;
+            return null;
         }
 
         // Arbitrary track used to get file save location and populate metadata
         Track firstTrack = tracks.get(0);
 
-        // Get file save location
-        Path trackFilePath = firstTrack.getPath();
-
         // Replace filename with its corresponding date and its file extension with '.gpx'
-        String path = trackFilePath.getParent().resolve(filename).toString() + ".gpx";
+        String path = saveDirectory.resolve(filename).toString() + ".gpx";
 
         // Create a file to write data to
         File file = new File(path);
         StreamResult streamResult = new StreamResult(file);
 
         createGpx(tracks, streamResult);
+
+        return Paths.get(path);
     }
 
     /**
