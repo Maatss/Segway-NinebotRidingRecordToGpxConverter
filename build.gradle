@@ -6,7 +6,7 @@ plugins {
 }
 
 group 'org.mats'
-version '1.4'
+version '1.4.1'
 
 application.mainClassName = "com.Main"
 
@@ -48,12 +48,16 @@ task copyResources {
     }
 }
 
-task fatJar(type: Jar) {
+jar {
     manifest {
         attributes 'Main-Class': 'com.Main'
     }
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-    with jar
+    from('src/main/java') {
+        include  '**/*.fxml'
+        include  '**/*.css'
+        include  '**/*.png'
+        include  '**/*.ico'
+    }
 }
 
 task packageDistribution(type: Zip) {
@@ -71,6 +75,10 @@ task packageDistribution(type: Zip) {
         from "jre"
         into "build/dist/jre"
     }
+    copy {
+        from "LICENSE"
+        into "build/dist"
+    }
 
     // Zip the distribution folder
     from "build/dist"
@@ -79,15 +87,15 @@ task packageDistribution(type: Zip) {
 }
 
 launch4j {
-//    headerType = "gui" // Creates only a fx window
-    headerType = "console" // Creates both a fx window and a console window which shows System.out
+    headerType = "gui" // Creates only a fx window
+//    headerType = "console" // Creates both a fx window and a console window which shows System.out
     mainClassName = "com.Main"
     outfile = "${rootProject.name}.exe"
     jar = "lib/${rootProject.name}-${rootProject.version}.jar"
     bundledJrePath = "jre"
     bundledJre64Bit = true
     jreMinVersion = '11'
-//    icon = "${projectDir}/src/main/resources/images/icon.ico"
+    icon = "${projectDir}/src/main/resources/images/SegwayTrackToGPXConverter.ico"
 }
 
 dependencies {

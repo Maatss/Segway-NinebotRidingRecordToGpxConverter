@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -29,6 +30,7 @@ public class App extends Application {
         // Setup window
         primaryStage.initStyle(StageStyle.TRANSPARENT);
         primaryStage.setTitle(WINDOW_TITLE);
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/images/SegwayTrackToGPXConverter.png")));
         primaryStage.setScene(new Scene(root, WINDOW_WIDTH, WINDOW_HEIGHT));
         primaryStage.show();
     }
