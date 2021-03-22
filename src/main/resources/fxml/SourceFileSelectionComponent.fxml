@@ -32,7 +32,7 @@
             <String fx:value="containerBody" />
             <String fx:value="fileSelectionListView" />
          </styleClass></ListView>
-        <Label fx:id="label_sourceFileSelectionInfo" alignment="CENTER" mouseTransparent="true" styleClass="defaultText" text="Selected segway JSON-track files will show here.&#10;&#10;Use the 'browse' button to select files to convert.&#10;You can also drag and drop the files onto this window." textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+        <Label fx:id="label_sourceFileSelectionInfo" alignment="CENTER" mouseTransparent="true" styleClass="defaultText" text="Selected Segway-Ninebot riding record files will show here.&#10;&#10;Use the 'browse' button to select files to convert.&#10;You can also drag and drop the files onto this window." textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
       <Label fx:id="label_numFilesSelected" alignment="CENTER" styleClass="defaultText" text="Number of selected files: 0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
     </children>
 </fx:root>

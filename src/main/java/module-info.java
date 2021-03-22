@@ -1,4 +1,4 @@
-module SegwayNinebotJsonToGpxConverter.main {
+module SegwayNinebotRidingRecordToGpxConverter.main {
     requires com.gluonhq.charm.glisten;
     requires javafx.controls;
     requires javafx.fxml;
@@ -6,9 +6,9 @@ module SegwayNinebotJsonToGpxConverter.main {
     requires gson;
     requires java.sql;
 
-    opens com to javafx.fxml;
-    opens com.app to javafx.fxml, javafx.graphics;
-    opens com.app.components to javafx.fxml;
+    opens com.maatss to javafx.fxml;
+    opens com.maatss.app to javafx.fxml, javafx.graphics;
+    opens com.maatss.app.components to javafx.fxml;
 
-    exports com;
+    exports com.maatss;
 }

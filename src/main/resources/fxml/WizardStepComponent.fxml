@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.app.components.ConfigureComponent?>
-<?import com.app.components.SaveFolderSelectionComponent?>
-<?import com.app.components.SourceFileSelectionComponent?>
-<?import com.app.components.SummaryComponent?>
+<?import com.maatss.app.components.ConfigureComponent?>
+<?import com.maatss.app.components.SaveFolderSelectionComponent?>
+<?import com.maatss.app.components.SourceFileSelectionComponent?>
+<?import com.maatss.app.components.SummaryComponent?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>

@@ -32,7 +32,7 @@
                         <Label layoutX="5.0" layoutY="30.0" styleClass="defaultText" text="KB (Max 10 digits)" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                      </children>
                   </AnchorPane>
-                  <Label fx:id="label_fileLimitInfo" styleClass="defaultText" text="Use a max file size when generating GPX files.&#10;Tracks will be partitioned into multiple GPX files if they can not fit inside a single file.&#10;Useful for uploading tracks to e.g. Google MyMaps, which has a file size limit of 5MB.&#10;(Default: Yes, 5MB)" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="65.0" />
+                  <Label fx:id="label_fileLimitInfo" styleClass="defaultText" text="Use a max file size when generating GPX files.&#10;Tracks will be split up into multiple GPX files if they can not fit inside a single file.&#10;Useful for uploading tracks to e.g. Google MyMaps, which has a file size limit of 5MB.&#10;(Default: Yes, 5MB)" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="65.0" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" />

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.app.components.WizardProgressComponent?>
-<?import com.app.components.WizardStepComponent?>
+<?import com.maatss.app.components.WizardProgressComponent?>
+<?import com.maatss.app.components.WizardStepComponent?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane_window" prefHeight="600.0" prefWidth="800.0" styleClass="window" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane_window" prefHeight="800.0" prefWidth="800.0" styleClass="window" stylesheets="@../css/stylesheet.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane fx:id="anchorPane_header" prefHeight="40.0" prefWidth="200.0" styleClass="windowHeader" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <children>
-                <Label fx:id="label_headerTitle" alignment="CENTER" prefHeight="30.0" styleClass="windowHeaderTitle" text="Segway-Ninebot JSON-track to GPX-track Converter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="0.0">
+                <Label fx:id="label_headerTitle" alignment="CENTER" prefHeight="30.0" styleClass="windowHeaderTitle" text="Segway-Ninebot Riding Record to GPX-track Converter" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="0.0">
                     <font>
                         <Font size="14.0" />
                     </font>
@@ -89,5 +89,6 @@
             <String fx:value="navigationNextButton" />
             </styleClass>
         </Button>
+      <Label fx:id="label_applicationInfo" disable="true" layoutX="61.0" layoutY="746.0" styleClass="defaultText" text="Version 1.4.2&#10;Copyright (C) 2021 Maatss&#10;https://github.com/Maatss/Segway-NinebotRidingRecordToGpxConverter" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
     </children>
 </AnchorPane>
