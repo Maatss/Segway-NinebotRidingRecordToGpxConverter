@@ -1,4 +1,3 @@
-f
 <div align="center">
 <img src="./resources/ApplicationIcon.png" width="20%">
 <h1>Segway-Ninebot Riding Record to GPX Converter</h1>
