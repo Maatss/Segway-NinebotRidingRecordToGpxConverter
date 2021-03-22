@@ -1,3 +1,8 @@
+/*
+////////////////////////////////////////////////
+Defaults
+////////////////////////////////////////////////
+*/
 
 .defaultText {
     -fx-font-style: normal;
@@ -21,8 +26,6 @@
     -fx-font-family: "Roboto Light";
     -fx-font-size: 14px;
     -fx-text-fill: #C5EDFF;
-
-    /*-fx-cursor: hand;*/
 }
 
 .defaultButton:hover {
@@ -36,196 +39,6 @@
 .defaultButton:pressed {
     -fx-border-width: 2 1 1 2;
 }
-
-.primaryButtonColor {
-    -fx-background-color: #3C4A83;
-}
-
-.secondaryButtonColor {
-    -fx-background-color: #2B2A3D;
-}
-
-.window {
-    -fx-background-image: url('../images/background.png');
-    -fx-background-size: 100% 100%;
-
-    -fx-border-color: #C5EDFF;
-    -fx-border-width: 0.4;
-}
-
-.windowHeader {
-    -fx-background-color: #2B2A3D;
-    -fx-border-color: transparent transparent #C5EDFF transparent;
-    -fx-border-width: 0.25;
-}
-
-.windowHeaderTitle {
-    -fx-text-fill: #7E7F83;
-    -fx-font-style: normal;
-    -fx-font-weight: lighter;
-    -fx-font-family: "Roboto Light";
-    -fx-font-size: 14px;
-}
-
-.windowHeaderButton {
-    -fx-background-color: transparent;
-    -fx-background-repeat: no-repeat;
-    /*-fx-background-position: 50% 60%;*/
-    /*-fx-background-position: 50% 50%;*/
-    -fx-border-color: transparent;
-    -fx-border-width: 0;
-    -fx-background-radius: 0;
-}
-
-/*.windowMinimizeButton {*/
-/*-fx-background-image: url('../images/window_minimize.png');*/
-/*-fx-background-size: 35% 35%;*/
-/*}*/
-
-/*.windowMaximizeButton {*/
-/*-fx-background-image: url('../images/window_maximize.png');*/
-/*-fx-background-size: 50% 50%;*/
-/*}*/
-
-/*.windowRestoreButton {*/
-/*-fx-background-image: url('../images/window_restore.png');*/
-/*-fx-background-size: 80% 80%;*/
-/*}*/
-
-/*.windowCloseButton {*/
-/*-fx-background-image: url('../images/window_close.png');*/
-/*-fx-background-image: url('../images/baseline_close_white_36dp.png');*/
-/*-fx-background-size: 65% 65%;*/
-/*}*/
-
-.windowCloseButton:hover {
-    -fx-background-color: #a50202;
-}
-
-.circle_progressBar {
-    -fx-fill: #C5EDFF;
-    -fx-stroke-width: 0;
-}
-
-.line_progressBar {
-    -fx-stroke: #C5EDFF;
-    -fx-stroke-width: 3;
-}
-
-.containerHeader {
-    -fx-background-color: #4E4C66;
-    -fx-border-color: #C5EDFF;
-    -fx-border-width: 1;
-    -fx-border-insets: 0 0 -1 0;
-}
-
-.containerBody {
-    -fx-background-color: #4E4C6660;
-    -fx-border-color: #C5EDFF60;
-    -fx-border-width: 2;
-}
-
-.containerHeaderTitle {
-    -fx-font-style: normal;
-    -fx-font-weight: bold;
-    -fx-font-family: "Roboto Light";
-    -fx-font-size: 16px;
-    -fx-text-fill: #C5EDFF;
-}
-
-.containerHeaderWizardStep {
-    -fx-font-style: normal;
-    -fx-font-weight: lighter;
-    -fx-font-family: "Roboto Light";
-    -fx-font-size: 14px;
-    -fx-text-fill: #C5EDFF;
-}
-
-/*.      <Style class selector> [,<compound selectors>] [:<pseudo selectors>]*/
-/* e.g. .myField Label , or .myField .label, as element name selectors have equivalent style classes*/
-/* e.g. .myField:hover*/
-.fileBrowseTextField .text-field {
-    -fx-border-radius: 0;
-    -fx-background-color: #7E7F8360;
-    -fx-border-color: #C5EDFF;
-    -fx-border-width: 1;
-    -fx-border-insets: 0;
-    -fx-pref-height: 32px;
-    -fx-text-fill: #C5EDFF;
-    -fx-prompt-text-fill: #8da8b5;
-    -fx-font-family: "Roboto Light";
-}
-
-.fileBrowseTextFieldError .text-field {
-    -fx-border-color: #EA1717;
-    -fx-border-width: 1;
-    -fx-border-insets: 0 1 -1 0;
-}
-
-.fileBrowseButton {
-    -fx-border-color: #C5EDFF;
-    -fx-border-width: 1;
-
-    -fx-padding: 4;
-    /*-fx-border-insets: -2;*/
-
-    -fx-font-style: normal;
-    -fx-font-weight: bold;
-    -fx-font-family: "Roboto Light";
-    -fx-font-size: 12px;
-    -fx-text-fill: #C5EDFF;
-}
-
-.clearFilesButton {
-    -fx-padding: 5 15 5 15;
-    -fx-font-size: 12px;
-}
-
-.navigationBackButton {
-    -fx-padding: 8 22 8 22;
-}
-
-.navigationNextButton {
-    -fx-padding: 8 22 8 22;
-}
-
-.text-area, .text-area .viewport, .text-area .content {
-    -fx-background-color: #4E4C66;
-    -fx-text-fill: #C5EDFF;
-    -fx-font-family: "Roboto Light";
-    -fx-font-size: 14px;
-}
-
-/*
-////////////////////////////////////////////////
-File listview
-////////////////////////////////////////////////
-*/
-
-.fileSelectionListView .list-cell:even {
-    -fx-background-color: #4E4C6660;
-    -fx-text-fill: #C5EDFF;
-}
-
-.fileSelectionListView {
-    -fx-border-insets: 0 -2 0 -2;
-}
-
-.fileSelectionListView .list-cell:odd {
-    -fx-background-color: #4E4C6610;
-    -fx-text-fill: #C5EDFF;
-}
-
-.fileSelectionListView .list-cell:filled:hover {
-    -fx-background-color: #69686d;
-    -fx-text-fill: #C5EDFF;
-}
-
-/*
-////////////////////////////////////////////////
-Textfields
-////////////////////////////////////////////////
-*/
 
 .defaultTextField {
     -fx-background-color: transparent;
@@ -265,6 +78,203 @@ Textfields
 .defaultTextFieldError:hover {
     -fx-border-color: #EA1717;
     -fx-border-width: 1 1 2 1;
+}
+
+/*
+////////////////////////////////////////////////
+Buttons
+////////////////////////////////////////////////
+*/
+
+.primaryButtonColor {
+    -fx-background-color: #3C4A83;
+}
+
+.secondaryButtonColor {
+    -fx-background-color: #2B2A3D;
+}
+
+.fileBrowseButton {
+    -fx-border-color: #C5EDFF;
+    -fx-border-width: 1;
+
+    -fx-padding: 4;
+
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 12px;
+    -fx-text-fill: #C5EDFF;
+}
+
+.clearFilesButton {
+    -fx-padding: 5 15 5 15;
+    -fx-font-size: 12px;
+}
+
+.navigationBackButton {
+    -fx-padding: 8 22 8 22;
+}
+
+.navigationNextButton {
+    -fx-padding: 8 22 8 22;
+}
+
+/*
+////////////////////////////////////////////////
+Window
+////////////////////////////////////////////////
+*/
+
+.window {
+    -fx-background-image: url('../images/background.png');
+    -fx-background-size: 100% 100%;
+
+    -fx-border-color: #C5EDFF;
+    -fx-border-width: 0.4;
+}
+
+.windowHeader {
+    -fx-background-color: #2B2A3D;
+    -fx-border-color: transparent transparent #C5EDFF transparent;
+    -fx-border-width: 0.25;
+}
+
+.windowHeaderTitle {
+    -fx-text-fill: #7E7F83;
+    -fx-font-style: normal;
+    -fx-font-weight: lighter;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 14px;
+}
+
+.windowHeaderButton {
+    -fx-background-color: transparent;
+    -fx-background-repeat: no-repeat;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+}
+
+.windowCloseButton:hover {
+    -fx-background-color: #a50202;
+}
+
+/*
+////////////////////////////////////////////////
+Generic components
+////////////////////////////////////////////////
+*/
+
+.containerHeader {
+    -fx-background-color: #4E4C66;
+    -fx-border-color: #C5EDFF;
+    -fx-border-width: 1;
+    -fx-border-insets: 0 0 -1 0;
+}
+
+.containerBody {
+    -fx-background-color: #4E4C6660;
+    -fx-border-color: #C5EDFF60;
+    -fx-border-width: 2;
+}
+
+.containerHeaderTitle {
+    -fx-font-style: normal;
+    -fx-font-weight: bold;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 16px;
+    -fx-text-fill: #C5EDFF;
+}
+
+.containerHeaderWizardStep {
+    -fx-font-style: normal;
+    -fx-font-weight: lighter;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 14px;
+    -fx-text-fill: #C5EDFF;
+}
+
+/*
+////////////////////////////////////////////////
+Progress component
+////////////////////////////////////////////////
+*/
+
+.circle_progressBar {
+    -fx-fill: #C5EDFF;
+    -fx-stroke-width: 0;
+}
+
+.line_progressBar {
+    -fx-stroke: #C5EDFF;
+    -fx-stroke-width: 3;
+}
+
+/*
+////////////////////////////////////////////////
+Filebrowse textfield
+////////////////////////////////////////////////
+*/
+
+/*.      <Style class selector> [,<compound selectors>] [:<pseudo selectors>]*/
+/* e.g. .myField Label , or .myField .label, as element name selectors have equivalent style classes*/
+/* e.g. .myField:hover*/
+.fileBrowseTextField .text-field {
+    -fx-border-radius: 0;
+    -fx-background-color: #7E7F8360;
+    -fx-border-color: #C5EDFF;
+    -fx-border-width: 1;
+    -fx-border-insets: 0;
+    -fx-pref-height: 32px;
+    -fx-text-fill: #C5EDFF;
+    -fx-prompt-text-fill: #8da8b5;
+    -fx-font-family: "Roboto Light";
+}
+
+.fileBrowseTextFieldError .text-field {
+    -fx-border-color: #EA1717;
+    -fx-border-width: 1;
+    -fx-border-insets: 0 1 -1 0;
+}
+
+
+/*
+////////////////////////////////////////////////
+TextArea
+////////////////////////////////////////////////
+*/
+
+.text-area, .text-area .viewport, .text-area .content {
+    -fx-background-color: #4E4C66;
+    -fx-text-fill: #C5EDFF;
+    -fx-font-family: "Roboto Light";
+    -fx-font-size: 14px;
+}
+
+/*
+////////////////////////////////////////////////
+File listview
+////////////////////////////////////////////////
+*/
+
+.fileSelectionListView .list-cell:even {
+    -fx-background-color: #4E4C6660;
+    -fx-text-fill: #C5EDFF;
+}
+
+.fileSelectionListView {
+    -fx-border-insets: 0 -2 0 -2;
+}
+
+.fileSelectionListView .list-cell:odd {
+    -fx-background-color: #4E4C6610;
+    -fx-text-fill: #C5EDFF;
+}
+
+.fileSelectionListView .list-cell:filled:hover {
+    -fx-background-color: #69686d;
+    -fx-text-fill: #C5EDFF;
 }
 
 /*
