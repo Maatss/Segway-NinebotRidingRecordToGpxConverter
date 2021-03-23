@@ -7,7 +7,7 @@
 ![LatestRelease](https://img.shields.io/badge/latest_release-2021_03_22-blue)
 ![OSSupport](https://img.shields.io/badge/OS-Windows_64_bit-blue)
 ![Version](https://img.shields.io/badge/version-1.4.2-green)
-[![Github All Releases](https://img.shields.io/github/downloads/Maatss/SegwayTrackToGpxConverter/total.svg)]()
+<!-- [![Github All Releases](https://img.shields.io/github/downloads/Maatss/SegwayTrackToGpxConverter/total.svg)]() -->
 
 <img src="./resources/Summary.png" width="100%">
 </div>
